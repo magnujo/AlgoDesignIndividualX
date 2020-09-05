@@ -1,8 +1,7 @@
 package com.company;
+//import javafx.util.Pair;
 
-import javafx.util.Pair;
-
-import java.awt.image.AreaAveragingScaleFilter;
+import com.company.Pair;
 import java.util.*;
 
 public class Main {
@@ -11,7 +10,7 @@ public class Main {
         Parser parser = new Parser();
 
         ArrayList<Pair <Integer,Integer>> set = parser.Scan();
-        parser.Print();
+        //parser.Print();
 
         int first = set.get(0).getValue();
 
@@ -36,22 +35,22 @@ class Parser {
 
     public ArrayList<Pair<Integer, Integer>> Scan() {
         int number = sc.nextInt();
-        System.out.println(number);
+        //System.out.println(number);
 
         for (int i = 0; i < number; i++) {
             int first = sc.nextInt();
             int second = sc.nextInt();
             Pair<Integer, Integer> pair = new Pair<Integer, Integer>(first, second);
 
-            System.out.println("Printing set");
-            for (int k = 0; k < set.size(); k++) {
+           // System.out.println("Printing set");
+            /*for (int k = 0; k < set.size(); k++) {
                 System.out.println(set.get(k));
-            }
+            }*/
 
-            System.out.println("Pair" + pair);
+           // System.out.println("Pair" + pair);
 
             if (firstRun==true){
-                System.out.println("added" + pair);
+                //System.out.println("added" + pair);
                 set.add(pair);
 
             }
@@ -62,7 +61,7 @@ class Parser {
 
             else {
                 for (int j = 0; j < set.size(); j++) {
-                    System.out.println("For J=" + j);
+                   // System.out.println("For J=" + j);
                         if(set.size()== j+1 || pair.getValue() < set.get(j+1).getValue()){
                             set.add(j+1, pair);
                             break;
@@ -81,9 +80,9 @@ class Parser {
 
 
     public Boolean Print() {
-        System.out.println("Printing Last List");
+        //System.out.println("Printing Last List");
         for (int i = 0; i < set.size(); i++) {
-            System.out.println(set.get(i));
+           // System.out.println(set.get(i));
         }
         return true;
     }
