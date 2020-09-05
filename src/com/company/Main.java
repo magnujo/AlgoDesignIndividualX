@@ -9,8 +9,14 @@ public class Main {
     public static void main(String[] args) {
         Parser parser = new Parser();
 
-        ArrayList<Pair <Integer,Integer>> set = parser.Scan();
+        ArrayList<Pair> set = parser.Scan();
         //parser.Print();
+        Collections.sort(set);
+
+        System.out.println("Printing Last List");
+        for (int i = 0; i < set.size(); i++) {
+            System.out.println(set.get(i));
+        }
 
         int first = set.get(0).getValue();
 
@@ -29,18 +35,18 @@ public class Main {
 
 
 class Parser {
-    ArrayList<Pair<Integer, Integer>> set = new ArrayList<Pair<Integer, Integer>>();
+    ArrayList<Pair> set = new ArrayList<Pair>();
     Scanner sc = new Scanner(System.in);
     Boolean firstRun = true;
 
-    public ArrayList<Pair<Integer, Integer>> Scan() {
+    public ArrayList<Pair> Scan() {
         int number = sc.nextInt();
         //System.out.println(number);
 
         for (int i = 0; i < number; i++) {
             int first = sc.nextInt();
             int second = sc.nextInt();
-            Pair<Integer, Integer> pair = new Pair<Integer, Integer>(first, second);
+            Pair pair = new Pair<>(first, second);
 
            // System.out.println("Printing set");
             /*for (int k = 0; k < set.size(); k++) {
@@ -49,30 +55,9 @@ class Parser {
 
            // System.out.println("Pair" + pair);
 
-            if (firstRun==true){
-                //System.out.println("added" + pair);
                 set.add(pair);
 
-            }
-
-            else if(pair.getValue()<set.get(0).getValue()){
-                set.add(0, pair);
-            }
-
-            else {
-                for (int j = 0; j < set.size(); j++) {
-                   // System.out.println("For J=" + j);
-                        if(set.size()== j+1 || pair.getValue() < set.get(j+1).getValue()){
-                            set.add(j+1, pair);
-                            break;
-                        }
-
-
-                }
-            }
-            firstRun=false;
         }
-
 
         return set;
         //firstRun=false;
